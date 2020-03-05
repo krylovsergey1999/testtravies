@@ -1,25 +1,15 @@
 language: java
 
-os:
-  - linux
-
 branches:
   only:
     - master
 
 jdk:
-  - oraclejdk11
+  - openjdk11
 
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: true
 
-# Отправлять уведомление на почту krylov.sergey.1999@yandex.ru если сборка упала
-notifications:
-  email:
-    recipients:
-      - krylov.sergey.1999@yandex.ru
-    on_success: never # default: change
-    on_failure: always # default: always
 
 before_cache:
   - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
