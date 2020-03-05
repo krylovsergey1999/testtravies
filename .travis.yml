@@ -1,5 +1,15 @@
 language: java
 
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+jdk:
+  - oraclejdk11
+
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
 
@@ -11,14 +21,8 @@ notifications:
     on_success: never # default: change
     on_failure: always # default: always
 
-script:
-  - ./gradlew build --scan -s
-
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
+  - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - $HOME/.gradle/caches/modules-2
+  - $HOME/.gradle/wrapper/
