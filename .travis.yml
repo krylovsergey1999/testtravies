@@ -11,7 +11,7 @@ jdk:
   - oraclejdk11
 
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
-sudo: false
+sudo: true
 
 # Отправлять уведомление на почту krylov.sergey.1999@yandex.ru если сборка упала
 notifications:
